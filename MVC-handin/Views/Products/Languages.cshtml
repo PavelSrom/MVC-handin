@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Languages";
+}
+
+<h1>Available languages</h1>
+
+<select>
+    @foreach (var language in ViewBag.Languages)
+    {
+        <option>@language.EnglishName</option>
+    }
+</select>
+

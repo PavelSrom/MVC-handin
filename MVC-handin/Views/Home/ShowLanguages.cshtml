@@ -1,0 +1,16 @@
+﻿@model MVC_handin.ViewModels.Home.ShowLanguagesViewModel
+
+@{
+    ViewBag.Title = "ShowLanguages";
+}
+
+<h1>ShowLanguages with ViewModel instead of ViewBag:</h1>
+
+<div class="row">
+    <div class="col-xs-6">
+        @Html.ListBox("lang", Model.CultureList)
+    </div>
+    <div class="col-xs-6">
+        @Html.DropDownList("lang2", Model.CultureList)
+    </div>
+</div>

@@ -1,0 +1,15 @@
+﻿@model MVC_handin.ViewModels.Garage.CarListViewModel
+
+<h1>CarsList</h1>
+@Html.ListBox("carsList", Model.CarsList)
+
+<h2>Fastest car</h2>
+<dl>
+    <dt>ID</dt>
+    <dd>@Model.FastestCar.ID</dd>
+    <dt>Model</dt>
+    <dd>@Model.FastestCar.Model</dd>
+    <dt>MaxSpeed</dt>
+    <dd>@Model.FastestCar.MaxSpeed km/h</dd>
+</dl>
+
