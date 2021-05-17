@@ -14,6 +14,7 @@
     @foreach (var prod in Model)
     {
         <tr>
+            <td><img src="@Url.Action("Picture", new { id = prod.ID })" /></td>
             <td>@prod.Name</td>
             <td>@prod.Description</td>
             <td>@Html.ActionLink("Details", "Details", new { id = prod.ID })</td>

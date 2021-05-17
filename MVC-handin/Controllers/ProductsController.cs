@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Globalization;
+using System.Web.Helpers; // support images
 using MVC_handin.Models;
 
 namespace MVC_handin.Controllers
@@ -40,6 +41,20 @@ namespace MVC_handin.Controllers
             var found = factory.Products.Where(product => product.ID == id).FirstOrDefault();
 
             return View(found);
+        }
+
+        // get product picture
+        public ActionResult Picture(int id)
+        {
+            var factory = new ShopFactory();
+            var product = factory.Products.Where(prod => prod.ID == id).FirstOrDefault();
+
+            if (product == null) return HttpNotFound();
+
+            var img = new WebImage(string.Format("~/Content/Images/{0}.jpg", product.ImageName));
+            img.Resize(50, 50);
+
+            return File(img.GetBytes(), "image/jpeg");
         }
     }
 }

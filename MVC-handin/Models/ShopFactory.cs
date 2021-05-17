@@ -20,9 +20,9 @@ namespace MVC_handin.Models
     {
         protected override void Seed(ShopFactory context)
         {
-            context.Products.Add(new Product() { Name = "Yoghurt", Description = "This creamy one will melt you", Price = 5.4M });
-            context.Products.Add(new Product() { Name = "Cleaning lotion", Description = "Nothing gets in its way", Price = 64M });
-            context.Products.Add(new Product() { Name = "Banana", Description = "Hungry? Get some banana!", Price = 3M });
+            context.Products.Add(new Product() { Name = "Yoghurt", Description = "This creamy one will melt you", Price = 5.4M, ImageName = "yoghurt" });
+            context.Products.Add(new Product() { Name = "Cleaning lotion", Description = "Nothing gets in its way", Price = 64M, ImageName = "lotion" });
+            context.Products.Add(new Product() { Name = "Banana", Description = "Hungry? Get some banana!", Price = 3M, ImageName = "banana" });
         }
     }
 }
