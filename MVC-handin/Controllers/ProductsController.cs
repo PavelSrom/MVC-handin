@@ -4,15 +4,26 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Globalization;
+using MVC_handin.Models;
 
 namespace MVC_handin.Controllers
 {
     public class ProductsController : Controller
     {
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            return View();
+            var factory = new ShopFactory();
+            IQueryable<Product> prods = factory.Products.OrderBy(prod => prod.Name);
+
+            if (search != null)
+            {
+                prods = prods.Where(prod => prod.Name.Contains(search));
+            }
+
+            var products = prods.Take(10).ToList();
+
+            return View(products);
         }
 
         public ViewResult Languages()
@@ -21,6 +32,14 @@ namespace MVC_handin.Controllers
             ViewBag.Languages = languages;
 
             return View();
+        }
+
+        public ActionResult Details(int id)
+        {
+            var factory = new ShopFactory();
+            var found = factory.Products.Where(product => product.ID == id).FirstOrDefault();
+
+            return View(found);
         }
     }
 }

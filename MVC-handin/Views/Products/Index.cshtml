@@ -5,3 +5,19 @@
 
 <h1>All products</h1>
 
+<form method="post" style="margin-bottom: 32px;">
+    <input type="text" name="search" class="form-control" />
+    <button type="submit">Search products</button>
+</form>
+
+<table class="table-striped table-bordered table-responsive">
+    @foreach (var prod in Model)
+    {
+        <tr>
+            <td>@prod.Name</td>
+            <td>@prod.Description</td>
+            <td>@Html.ActionLink("Details", "Details", new { id = prod.ID })</td>
+        </tr>
+    }
+</table>
+
